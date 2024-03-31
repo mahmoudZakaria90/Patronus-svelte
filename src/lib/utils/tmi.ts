@@ -1,7 +1,21 @@
 import tmi from 'tmi.js';
 import { isAuthenticated } from '../store';
 
-const tmiOptions: any = {
+interface ITmiOptions {
+  options?: {
+    debug: boolean;
+  };
+  connection?: {
+    reconnect: boolean;
+  };
+  identity?: {
+    username: string;
+    password: string;
+  };
+  channels?: Array<string>;
+}
+
+const tmiOptions: ITmiOptions = {
   options: {
     debug: true,
   },
@@ -21,6 +35,7 @@ export const tmiConnect = (username, token, channel) => {
   const client = new tmi.Client(tmiOptions);
 
   client.connect().catch((err) => {
+    isAuthenticated.set(false);
     console.error(err);
   });
 

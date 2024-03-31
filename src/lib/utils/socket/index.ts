@@ -27,7 +27,6 @@ socket.on('connect_error', (error) => {
 
 export const OAuth2TokenSubscribe = (username, channelName) => {
   socket.on('token', (token) => {
-    console.log(token);
     tokenStore.set(token);
     setLocalStorage('userToken', token);
     if (username && token && channelName) {

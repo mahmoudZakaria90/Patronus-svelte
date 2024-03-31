@@ -1,6 +1,5 @@
 <script lang="ts">
   import { sockekServerURL } from '../../lib/utils/socket';
-
   import { isAuthenticated, socketIdStore } from '../../lib/store';
 </script>
 
