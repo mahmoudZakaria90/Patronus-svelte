@@ -22,9 +22,6 @@
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
-    "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-svelte": "^2.35.1",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
@@ -40,10 +37,51 @@
     "socket.io-client": "^4.7.5",
     "tmi.js": "^1.8.5"
   },
+  "eslintConfig": {
+    "extends": [
+      "plugin:svelte/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json",
+      "extraFileExtensions": [
+        ".svelte"
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "*.svelte"
+        ],
+        "parser": "svelte-eslint-parser"
+      }
+    ],
+    "rules": {
+      "implicit-arrow-linebreak": 0,
+      "object-curly-newline": 0,
+      "import/prefer-default-export": 0,
+      "import/no-cycle": 0,
+      "no-console": [
+        "warn",
+        {
+          "allow": [
+            "error"
+          ]
+        }
+      ],
+      "operator-linebreak": 0,
+      "no-use-before-define": 0,
+      "import/no-extraneous-dependencies": 0,
+      "consistent-return": 0,
+      "default-param-last": 0,
+      "no-unused-vars": 1,
+      "func-names": 0
+    }
+  },
   "husky": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*(.ts|.svelte)": "eslint --max-warnings=0"
+    "src/**/*.@(ts|svelte)": "eslint --max-warnings=0"
   }
 }
