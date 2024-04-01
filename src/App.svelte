@@ -11,6 +11,7 @@
     channelStore,
     tokenStore,
     isAuthenticated,
+    isLoading,
   } from './lib/store';
   import { tmiConnect } from './lib/utils/tmi';
   import { getLocalStorage, setLocalStorage } from './lib/utils/storage';
@@ -39,6 +40,8 @@
       window.Twitch.ext.viewer.id,
       addHeaders(twitch.helixToken),
     );
+
+    isLoading.set(false);
 
     const userProfile = {
       displayName: userDataResult.data[0].display_name,

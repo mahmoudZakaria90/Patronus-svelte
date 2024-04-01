@@ -1,5 +1,6 @@
 import tmi from 'tmi.js';
-import { isAuthenticated } from '../store';
+import { isAuthenticated, isLoading } from '../store';
+import { removeLocalStorage } from './storage';
 
 interface ITmiOptions {
   options?: {
@@ -36,10 +37,16 @@ export const tmiConnect = (username, token, channel) => {
 
   client.connect().catch((err) => {
     isAuthenticated.set(false);
+    isLoading.set(false);
+    removeLocalStorage('userProfile');
+    removeLocalStorage('userToken');
     console.error(err);
   });
 
-  isAuthenticated.set(true);
+  client.on('connected', () => {
+    isAuthenticated.set(true);
+    isLoading.set(false);
+  });
   // client.on(clientChannel, user, message) => {
   //   const self = user.username === userData.user.display_name;
   //   chat.appendChild(createMessageTemplate(user, message, self));

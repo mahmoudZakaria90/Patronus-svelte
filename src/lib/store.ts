@@ -6,9 +6,8 @@ interface IUserStore {
   profilePic: string;
 }
 
-const isAuthenticated: Writable<boolean> = writable(
-  getLocalStorage('userToken') ? true : false,
-);
+const isAuthenticated: Writable<boolean> = writable(false);
+const isLoading: Writable<boolean> = writable(true);
 
 const userStore: Writable<IUserStore> = writable(
   getLocalStorage('userProfile') || {
@@ -25,4 +24,11 @@ const channelStore: Writable<string> = writable('');
 
 const socketIdStore: Writable<string> = writable('');
 
-export { isAuthenticated, userStore, tokenStore, channelStore, socketIdStore };
+export {
+  isAuthenticated,
+  isLoading,
+  userStore,
+  tokenStore,
+  channelStore,
+  socketIdStore,
+};

@@ -1,9 +1,14 @@
 <script lang="ts">
   import { sockekServerURL } from '../../lib/utils/socket';
-  import { isAuthenticated, socketIdStore } from '../../lib/store';
+  import { isAuthenticated, isLoading, socketIdStore } from '../../lib/store';
+  import Loader from '../Loader.svelte';
 </script>
 
-{#if !$isAuthenticated}
+{#if $isLoading}
+  <Loader />
+{/if}
+
+{#if !$isAuthenticated && !$isLoading}
   <a
     href={`${sockekServerURL}/login?state=${$socketIdStore}`}
     class="auth-link"
