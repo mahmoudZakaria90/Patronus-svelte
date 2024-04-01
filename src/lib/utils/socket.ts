@@ -55,7 +55,7 @@ socket.on('addRemoveReactionBack', (payload: IPayloadBackFromServer) => {
     currentStore.find((messageItem) => {
       if (messageItem.id === payload.id.split('_')[1]) {
         const targetEmoij = messageItem.emojis.find(
-          (emoji) => emoji.name === payload.id,
+          (emoji) => emoji.id === payload.id,
         );
         targetEmoij.count = payload.reactionsCount;
         targetEmoij.reactors = payload.reactors;

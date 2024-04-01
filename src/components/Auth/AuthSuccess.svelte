@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isAuthenticated, userStore } from '../../lib/store';
+  import { isAuthenticated, userStore } from '$store';
 </script>
 
 {#if $isAuthenticated}

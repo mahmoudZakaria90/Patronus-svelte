@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { userStore, type IUserStore } from '../../lib/store';
-  import { socket, type IPayload } from '../../lib/utils/socket';
+  import { userStore, type IUserStore } from '$store';
+  import { socket, type IPayload } from '$utils/socket';
 
-  export let name: string;
+  export let id: string;
   export let value: string;
   export let count: number;
   export let reactors: Array<IUserStore>;
@@ -11,7 +11,7 @@
 
   function handleChange() {
     const payload: IPayload = {
-      id: name,
+      id,
       reactionsCount: count,
       reactors,
       user: $userStore,
@@ -25,13 +25,7 @@
 </script>
 
 <div class="chat-message-reaction">
-  <input
-    type="checkbox"
-    {name}
-    id={name}
-    bind:checked
-    on:change={handleChange}
-  />
-  <label for={name}>{value}</label>
+  <input type="checkbox" {id} bind:checked on:change={handleChange} />
+  <label for={id}>{value}</label>
   <span>{count}</span>
 </div>

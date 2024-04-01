@@ -53,14 +53,17 @@ export const tmiConnect = (username, token, channel) => {
       const newMessage = {
         id: user.id,
         message,
-        sender: user['display-name'],
+        sender: {
+          displayName: user['display-name'],
+          color: user.color,
+        },
         emojis: [
-          { name: `thumbsUp_${user.id}`, value: '👍', count: 0, reactors: [] },
-          { name: `love_${user.id}`, value: '❤️', count: 0, reactors: [] },
-          { name: `laugh_${user.id}`, value: '😂', count: 0, reactors: [] },
-          { name: `sad_${user.id}`, value: '😢', count: 0, reactors: [] },
-          { name: `surprised_${user.id}`, value: '😵', count: 0, reactors: [] },
-          { name: `angry_${user.id}`, value: '😡', count: 0, reactors: [] },
+          { id: `thumbsUp_${user.id}`, value: '👍', count: 0, reactors: [] },
+          { id: `love_${user.id}`, value: '❤️', count: 0, reactors: [] },
+          { id: `laugh_${user.id}`, value: '😂', count: 0, reactors: [] },
+          { id: `sad_${user.id}`, value: '😢', count: 0, reactors: [] },
+          { id: `surprised_${user.id}`, value: '😵', count: 0, reactors: [] },
+          { id: `angry_${user.id}`, value: '😡', count: 0, reactors: [] },
         ],
       };
       return [...current, newMessage];
