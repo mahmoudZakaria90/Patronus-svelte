@@ -16,10 +16,10 @@
     "checkJs": true,
     "isolatedModules": true,
     "paths": {
-      "$assets/*": ["./src/lib/assets/*"],
+      "$assets/*": ["./src/assets/*"],
       "$components/*": ["./src/components/*"],
-      "$store": ["./src/lib/store.ts"],
-      "$utils/*": ["./src/lib/utils/*"]
+      "$stores/*": ["./src/stores/*"],
+      "$utils/*": ["./src/utils/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],

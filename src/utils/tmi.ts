@@ -1,5 +1,5 @@
 import tmi from 'tmi.js';
-import { isAuthenticated, isLoading, messagesStore } from '../store';
+import { isAuthenticated, isLoading, messagesStore } from '../stores/store';
 import { removeLocalStorage } from './storage';
 
 interface ITmiOptions {

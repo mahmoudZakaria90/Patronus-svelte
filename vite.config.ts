@@ -9,10 +9,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      $assets: './src/lib/assets',
-      $store: './src/lib/store.ts',
-      $components: './src/components',
-      $utils: './src/lib/utils',
+      $assets: 'src/assets',
+      $stores: 'src/stores',
+      $components: 'src/components',
+      $utils: 'src/utils',
     },
   },
 });

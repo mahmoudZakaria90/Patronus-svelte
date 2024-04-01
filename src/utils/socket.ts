@@ -4,7 +4,7 @@ import {
   tokenStore,
   socketIdStore,
   messagesStore,
-} from '../store';
+} from '../stores/store';
 import { setLocalStorage } from './storage';
 import { tmiConnect } from './tmi';
 

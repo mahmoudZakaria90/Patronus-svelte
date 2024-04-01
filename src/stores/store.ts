@@ -1,5 +1,5 @@
 import { writable, type Writable } from 'svelte/store';
-import { getLocalStorage } from './utils/storage';
+import { getLocalStorage } from '../utils/storage';
 
 interface IUserStore {
   displayName: string;

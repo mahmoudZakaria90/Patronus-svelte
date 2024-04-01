@@ -1,5 +1,5 @@
 import { simpleGETClient } from './rest';
-import { userStore, channelStore } from '../store';
+import { userStore, channelStore } from '../stores/store';
 import { setLocalStorage } from './storage';
 
 interface ITwitchUserInfo {
