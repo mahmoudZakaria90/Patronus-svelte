@@ -1,5 +1,5 @@
 import tmi from 'tmi.js';
-import { isAuthenticated, isLoading } from '../store';
+import { isAuthenticated, isLoading, messagesStore } from '../store';
 import { removeLocalStorage } from './storage';
 
 interface ITmiOptions {
@@ -47,55 +47,23 @@ export const tmiConnect = (username, token, channel) => {
     isAuthenticated.set(true);
     isLoading.set(false);
   });
-  // client.on(clientChannel, user, message) => {
-  //   const self = user.username === userData.user.display_name;
-  //   chat.appendChild(createMessageTemplate(user, message, self));
-  //   chat.scrollTop = chat.scrollHeight;
-  // });
 
-  // client.on(
-  //   'messagedeleted',
-  //   (clientChannel, username, deletedMessage, userstate) => {
-  //     const targetMsgById = document.querySelector(
-  //       `#message-${userstate['target-msg-id']}`,
-  //     );
-  //     if (targetMsgById) {
-  //       targetMsgById.textContent =
-  //         ': Your message was deleted by the moderator.';
-  //     }
-  //   },
-  // );
-
-  // client.on('connected', () => {
-  //   removeLoadingState();
-  //   removeErrorEl();
-  //   createLoggedInText(userData.user.display_name);
-  //   sendMessageInput.style.display = 'block';
-
-  //   sendMessageForm.addEventListener('submit', (event) => {
-  //     event.preventDefault();
-  //     const input = sendMessageInput;
-  //     const inputValue = input.value;
-  //     if (inputValue) {
-  //       socket.emit('messageInExt', {
-  //         user: {
-  //           'display-name': userData.user.display_name,
-  //           color: '',
-  //           socketId: socket.id,
-  //         },
-  //         message: inputValue,
-  //       });
-  //     }
-  //     input.value = '';
-  //   });
-
-  //   socket.on('messageInExtBackToAll', ({ user, message }) => {
-  //     const self = user['display-name'] === userData.user.display_name;
-  //     chat.appendChild(createMessageTemplate(user, message, self));
-  //     chat.scrollTop = chat.scrollHeight;
-  //   });
-  //   socket.on('messageInExtBackToSocket', (message) => {
-  //     client.action(tmiOptions.channels[0], message);
-  //   });
-  // });
+  client.on('chat', (clientChannel, user, message) => {
+    messagesStore.update((current) => {
+      const newMessage = {
+        id: user.id,
+        message,
+        sender: user['display-name'],
+        emojis: [
+          { name: `thumbsUp_${user.id}`, value: '👍', count: 0, reactors: [] },
+          { name: `love_${user.id}`, value: '❤️', count: 0, reactors: [] },
+          { name: `laugh_${user.id}`, value: '😂', count: 0, reactors: [] },
+          { name: `sad_${user.id}`, value: '😢', count: 0, reactors: [] },
+          { name: `surprised_${user.id}`, value: '😵', count: 0, reactors: [] },
+          { name: `angry_${user.id}`, value: '😡', count: 0, reactors: [] },
+        ],
+      };
+      return [...current, newMessage];
+    });
+  });
 };

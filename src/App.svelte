@@ -1,18 +1,12 @@
 <script lang="ts">
   import Header from './components/Header.svelte';
-  import Messages from './components/Messages.svelte';
+  import Messages from './components/Messages/Messages.svelte';
   import AuthButton from './components/Auth/AuthButton.svelte';
 
   import { OAuth2TokenSubscribe } from './lib/utils/socket';
   import { getBroadcastInfo, getUserInfo } from './lib/utils/getInfo';
   import { addHeaders } from './lib/utils/rest';
-  import {
-    userStore,
-    channelStore,
-    tokenStore,
-    isAuthenticated,
-    isLoading,
-  } from './lib/store';
+  import { userStore, channelStore, tokenStore, isLoading } from './lib/store';
   import { tmiConnect } from './lib/utils/tmi';
   import { getLocalStorage, setLocalStorage } from './lib/utils/storage';
 
@@ -50,9 +44,6 @@
 
     userStore.set(userProfile);
     setLocalStorage('userProfile', userProfile);
-
-    // bootstrap in case of access token stored
-    // console.log(userData.displayName, channelName);
 
     OAuth2TokenSubscribe(userData.displayName, channelName);
   });
