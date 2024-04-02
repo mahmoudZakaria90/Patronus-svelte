@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { userStore, type Emojis, type ISender } from '$stores/store';
+  import { userStore, type Emojis, type ISender } from '../../stores/store';
   import Emoji from './Emoji.svelte';
 
   export let id: string;

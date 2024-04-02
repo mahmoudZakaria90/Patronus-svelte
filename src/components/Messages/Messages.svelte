@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isAuthenticated, messagesStore } from '$stores/store';
+  import { isAuthenticated, messagesStore } from '../../stores/store';
   import MessageItem from './MessageItem.svelte';
 </script>
 

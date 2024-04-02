@@ -1,19 +1,19 @@
 <script lang="ts">
-  import Header from '$components/Header.svelte';
-  import Messages from '$components/Messages/Messages.svelte';
-  import AuthButton from '$components/Auth/AuthButton.svelte';
+  import Header from './components/Header.svelte';
+  import Messages from './components/Messages/Messages.svelte';
+  import AuthButton from './components/Auth/AuthButton.svelte';
 
-  import { OAuth2TokenSubscribe } from '$utils/socket';
-  import { getBroadcastInfo, getUserInfo } from '$utils/getInfo';
+  import { OAuth2TokenSubscribe } from './utils/socket';
+  import { getBroadcastInfo, getUserInfo } from './utils/getInfo';
   import { addHeaders } from './utils/rest';
   import {
     userStore,
     channelStore,
     tokenStore,
     isLoading,
-  } from '$stores/store';
+  } from './stores/store';
   import { tmiConnect } from './utils/tmi';
-  import { getLocalStorage, setLocalStorage } from './utils/storage';
+  import { setLocalStorage } from './utils/storage';
 
   let userData;
   let authToken;

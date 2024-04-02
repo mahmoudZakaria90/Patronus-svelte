@@ -1,6 +1,10 @@
 <script lang="ts">
-  import { sockekServerURL } from '$utils/socket';
-  import { isAuthenticated, isLoading, socketIdStore } from '$stores/store';
+  import { sockekServerURL } from '../../utils/socket';
+  import {
+    isAuthenticated,
+    isLoading,
+    socketIdStore,
+  } from '../../stores/store';
   import Loader from '../Loader.svelte';
 </script>
 

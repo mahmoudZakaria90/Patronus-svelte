@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { userStore, type IUserStore } from '$stores/store';
+  import { userStore, type IUserStore } from '../../stores/store';
   import { socket, type IPayload } from '../../utils/socket';
 
   export let id: string;
