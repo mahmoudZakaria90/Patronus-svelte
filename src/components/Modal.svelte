@@ -64,8 +64,10 @@
     top: 15px;
     right: 15px;
     border: none;
-    background-color: transparent;
-    color: white;
+    background-color: white;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 10px;
   }
 
   .reactors-list-content {
