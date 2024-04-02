@@ -13,7 +13,8 @@
     <span
       class={sender.displayName === $userStore.displayName &&
         'chat-message-self'}
-      style="color: {sender.color}">{sender.displayName}</span
+      style="color: {sender.color || '#3de2db'};font-weight: 700"
+      >{sender.displayName}</span
     >
     <span>: {message}</span>
   </p>
@@ -21,3 +22,21 @@
     <Emoji {...emoji} />
   {/each}
 </div>
+
+<style>
+  .chat-message {
+    margin-bottom: 25px;
+  }
+
+  .chat-message > p {
+    margin-bottom: 5px;
+  }
+
+  .chat-message-self {
+    display: inline-block;
+    color: black;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 10px;
+  }
+</style>

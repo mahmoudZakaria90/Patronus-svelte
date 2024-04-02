@@ -10,3 +10,12 @@
     {/each}
   </div>
 {/if}
+
+<style>
+  .chat {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+    margin-bottom: 10px;
+  }
+</style>

@@ -29,3 +29,32 @@
   <label for={id}>{value}</label>
   <span>{count}</span>
 </div>
+
+<style>
+  input[type='checkbox'] {
+    position: absolute;
+    left: -99999999px;
+  }
+
+  input[type='checkbox']:checked + label {
+    background-color: #581faf;
+  }
+  .chat-message-reaction {
+    display: inline-block;
+    margin-right: 13px;
+    text-align: center;
+  }
+
+  .chat-message-reaction:last-of-type {
+    margin-right: 0;
+  }
+
+  .chat-message-reaction > label {
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    padding: 0 4px;
+    display: block;
+  }
+</style>

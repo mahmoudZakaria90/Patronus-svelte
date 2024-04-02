@@ -21,3 +21,15 @@
     Auth with Twitch
   </a>
 {/if}
+
+<style>
+  .auth-link {
+    display: block;
+    text-align: center;
+    color: white;
+    background-color: #5714bb;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+  }
+</style>

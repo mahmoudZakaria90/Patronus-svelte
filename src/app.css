@@ -16,13 +16,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
 }
 
 body {
-  font-family: sans-serif;
   font-size: 16px;
   color: white;
   padding: 10px;
@@ -43,24 +43,6 @@ img {
   text-align: center;
 }
 
-#logo {
-  margin: 15px auto;
-  border-radius: 10px;
-  width: 45px;
-}
-
-#error {
-  color: #ffa6a6;
-  text-align: center;
-}
-
-.chat {
-  position: relative;
-  height: 300px;
-  overflow: auto;
-  margin-bottom: 10px;
-}
-
 button {
   cursor: pointer;
 }
@@ -69,42 +51,14 @@ button:disabled {
   cursor: default;
 }
 
-input[type='checkbox'] {
-  position: absolute;
-  left: -99999999px;
-}
-
-input[type='checkbox']:checked + label {
-  background-color: #581faf;
-}
-
-.logged-in-text,
 small {
   margin: 0 0 15px;
 }
 
-.logged-in-text > img,
 .reactor > img {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-}
-
-.logged-in-user {
-  padding: 5px 10px;
-  color: white;
-  border-radius: 5px;
-  display: inline-block;
-}
-
-.auth-link {
-  display: block;
-  text-align: center;
-  color: white;
-  background-color: #5714bb;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 15px;
 }
 
 .chat-message {
