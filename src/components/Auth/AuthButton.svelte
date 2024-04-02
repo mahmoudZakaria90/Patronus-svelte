@@ -14,7 +14,7 @@
 
 {#if !$isAuthenticated && !$isLoading}
   <a
-    href={`${sockekServerURL}/login?state=${socketIdStore}`}
+    href={`${sockekServerURL}/login?state=${$socketIdStore}`}
     class="auth-link"
     target="_blank"
   >

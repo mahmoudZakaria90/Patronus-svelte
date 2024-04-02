@@ -25,7 +25,7 @@ export const sockekServerURL =
   import.meta.env.NODE_ENV === 'production'
     ? import.meta.env.VITE_SOCKET_SERVER_URL_PROD
     : import.meta.env.VITE_SOCKET_SERVER_URL_DEV;
-console.log(sockekServerURL);
+
 export const socket = io(sockekServerURL);
 
 socket.on('connect', () => {
@@ -42,6 +42,7 @@ socket.on('connect_error', (error) => {
 export const OAuth2TokenSubscribe = (username: string, channelName: string) => {
   socket.on('token', (token) => {
     tokenStore.set(token);
+    console.log(token);
     setLocalStorage('userToken', token);
     if (username && token && channelName) {
       tmiConnect(username, token, channelName);
