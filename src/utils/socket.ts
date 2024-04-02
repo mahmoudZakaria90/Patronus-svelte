@@ -4,6 +4,7 @@ import {
   tokenStore,
   socketIdStore,
   messagesStore,
+  errorStore,
 } from '../stores/store';
 import { setLocalStorage } from './storage';
 import { tmiConnect } from './tmi';
@@ -34,9 +35,8 @@ socket.on('connect', () => {
 });
 
 socket.on('connect_error', (error) => {
-  //   const errorMessage = `Patronus, ${error}`;
-  //   errorEl.textContent = errorMessage;
-  //   throw errorMessage;
+  errorStore.set(error);
+  console.error(error);
 });
 
 export const OAuth2TokenSubscribe = (username: string, channelName: string) => {

@@ -1,7 +1,8 @@
 <script lang="ts">
+  import errorStore from '../../stores/errorStore';
 </script>
 
-<div class="error">Patronus,</div>
+<div class="error">Patronus, {$errorStore}</div>
 
 <style>
   .error {

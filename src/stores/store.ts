@@ -5,6 +5,7 @@ export { default as socketIdStore } from './socketStore';
 export { default as userStore, type IUserStore } from './userStore';
 export { default as tokenStore } from './tokenStore';
 export { default as channelStore } from './channelStore';
+export { default as errorStore } from './errorStore';
 import { type IUserStore } from './userStore';
 
 type Emojis = Array<{

@@ -1,5 +1,10 @@
 import tmi from 'tmi.js';
-import { isAuthenticated, isLoading, messagesStore } from '../stores/store';
+import {
+  errorStore,
+  isAuthenticated,
+  isLoading,
+  messagesStore,
+} from '../stores/store';
 import { removeLocalStorage } from './storage';
 
 interface ITmiOptions {
@@ -40,6 +45,7 @@ export const tmiConnect = (username, token, channel) => {
     isLoading.set(false);
     removeLocalStorage('userProfile');
     removeLocalStorage('userToken');
+    errorStore.set(err);
     console.error(err);
   });
 

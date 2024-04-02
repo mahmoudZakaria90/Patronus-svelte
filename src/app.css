@@ -61,40 +61,6 @@ small {
   border-radius: 50%;
 }
 
-.chat-message {
-  margin-bottom: 25px;
-}
-
-.chat-message > p {
-  margin-bottom: 5px;
-}
-
-.chat-message-self {
-  display: inline-block;
-  color: black;
-  padding: 5px 10px;
-  background-color: white;
-  border-radius: 10px;
-}
-.chat-message-reaction {
-  display: inline-block;
-  margin-right: 13px;
-  text-align: center;
-}
-
-.chat-message-reaction:last-of-type {
-  margin-right: 0;
-}
-
-.chat-message-reaction > label {
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: pointer;
-  padding: 0 4px;
-  display: block;
-}
-
 .line {
   display: block;
   height: 1px;
