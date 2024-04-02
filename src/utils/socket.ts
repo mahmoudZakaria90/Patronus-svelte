@@ -30,7 +30,7 @@ export const sockekServerURL =
 export const socket = io(sockekServerURL);
 
 socket.on('connect', () => {
-  console.log('Socket Id', socket.id);
+  console.log('Successfully generated a socket Id');
   socketIdStore.set(socket.id);
 });
 
@@ -50,7 +50,6 @@ export const OAuth2TokenSubscribe = (username: string, channelName: string) => {
 };
 
 socket.on('addRemoveReactionBack', (payload: IPayloadBackFromServer) => {
-  console.log(payload);
   messagesStore.update((currentStore) => {
     currentStore.find((messageItem) => {
       if (messageItem.id === payload.id.split('_')[1]) {

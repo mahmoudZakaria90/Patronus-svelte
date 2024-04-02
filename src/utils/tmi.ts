@@ -43,7 +43,6 @@ export const tmiConnect = (username, token, channel) => {
   client.connect().catch((err) => {
     isAuthenticated.set(false);
     isLoading.set(false);
-    removeLocalStorage('userProfile');
     removeLocalStorage('userToken');
     errorStore.set(err);
     console.error(err);

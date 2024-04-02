@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { wrapWithTwitchURL } from '../../utils/replace';
   import { isAuthenticated, userStore } from '../../stores/store';
 
   function handleChange(e) {
@@ -11,7 +12,7 @@
 {#if $isAuthenticated}
   <div class="logged-in-text">
     <img src={$userStore.profilePic} alt="" />
-    <a target="_blank" href={`https://twitch.tv/${$userStore.displayName}`}
+    <a target="_blank" href={wrapWithTwitchURL($userStore.displayName)}
       >{$userStore.displayName}</a
     >
   </div>

@@ -6,6 +6,7 @@ export { default as userStore, type IUserStore } from './userStore';
 export { default as tokenStore } from './tokenStore';
 export { default as channelStore } from './channelStore';
 export { default as errorStore } from './errorStore';
+export { default as modalStore } from './modalStore';
 import { type IUserStore } from './userStore';
 
 type Emojis = Array<{

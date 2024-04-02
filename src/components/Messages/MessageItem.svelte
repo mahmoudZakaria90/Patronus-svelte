@@ -21,6 +21,7 @@
   {#each emojis as emoji (emoji.id)}
     <Emoji {...emoji} />
   {/each}
+  <div class="line"></div>
 </div>
 
 <style>
@@ -38,5 +39,12 @@
     padding: 5px 10px;
     background-color: white;
     border-radius: 10px;
+  }
+  .line {
+    display: block;
+    height: 1px;
+    background-color: #fff;
+    margin: 10px 10px 0;
+    opacity: 0.2;
   }
 </style>

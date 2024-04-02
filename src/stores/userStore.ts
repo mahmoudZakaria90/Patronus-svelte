@@ -6,11 +6,9 @@ export interface IUserStore {
   profilePic: string;
 }
 
-const userStore: Writable<IUserStore> = writable(
-  getLocalStorage('userProfile') || {
-    displayName: '',
-    profilePic: '',
-  },
-);
+const userStore: Writable<IUserStore> = writable({
+  displayName: '',
+  profilePic: '',
+});
 
 export default userStore;

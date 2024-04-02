@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { userStore, type IUserStore } from '../../stores/store';
+  import { userStore, type IUserStore, modalStore } from '../../stores/store';
   import { socket, type IPayload } from '../../utils/socket';
 
   export let id: string;
@@ -22,12 +22,29 @@
     }
     socket.emit('removeReaction', payload);
   }
+
+  function handleClick() {
+    if (!Number(count)) return;
+    modalStore.set({
+      showModal: true,
+      modalData: {
+        value,
+        count,
+        reactors,
+      },
+    });
+  }
 </script>
 
 <div class="chat-message-reaction">
   <input type="checkbox" {id} bind:checked on:change={handleChange} />
   <label for={id}>{value}</label>
-  <span>{count}</span>
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <span
+    class="reactors-list-button {Number(count) && 'reactors-list-button-caret'}"
+    on:click={handleClick}>{count}</span
+  >
 </div>
 
 <style>
@@ -56,5 +73,27 @@
     cursor: pointer;
     padding: 0 4px;
     display: block;
+  }
+  .reactors-list-button {
+    position: relative;
+    display: block;
+    font-size: 14px;
+    user-select: none;
+    text-align: center;
+    cursor: pointer;
+  }
+  .reactors-list-button-caret {
+    text-decoration: underline;
+  }
+  .reactors-list-button-caret:before {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border: 3px solid transparent;
+    border-bottom-color: black;
+    transform: rotate(45deg);
   }
 </style>
