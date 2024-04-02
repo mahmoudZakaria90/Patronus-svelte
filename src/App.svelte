@@ -11,6 +11,7 @@
     channelStore,
     tokenStore,
     isLoading,
+    errorStore,
   } from './stores/store';
   import { tmiConnect } from './utils/tmi';
   import { setLocalStorage } from './utils/storage';
@@ -24,6 +25,9 @@
   channelStore.subscribe((channel) => (channelName = channel));
 
   window.Twitch.ext.onAuthorized(async (twitch) => {
+    if (!window.Twitch.ext.viewer.id) {
+      errorStore.set(401);
+    }
     const channelNameResult = await getBroadcastInfo(
       twitch.channelId,
       addHeaders(twitch.helixToken),

@@ -42,7 +42,6 @@ socket.on('connect_error', (error) => {
 export const OAuth2TokenSubscribe = (username: string, channelName: string) => {
   socket.on('token', (token) => {
     tokenStore.set(token);
-    console.log(token);
     setLocalStorage('userToken', token);
     if (username && token && channelName) {
       tmiConnect(username, token, channelName);

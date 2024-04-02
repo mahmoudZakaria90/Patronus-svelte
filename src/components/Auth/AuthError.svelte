@@ -1,8 +1,13 @@
 <script lang="ts">
   import errorStore from '../../stores/errorStore';
+  import grant from '../../assets/grant.png';
 </script>
 
-<div class="error">Patronus, {$errorStore}</div>
+{#if $errorStore === 401}
+  <img src={grant} alt="" />
+{:else if typeof $errorStore === 'function'}
+  <div class="error">Patronus, {$errorStore}</div>
+{/if}
 
 <style>
   .error {
