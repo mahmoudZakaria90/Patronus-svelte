@@ -7,7 +7,7 @@
   }
 </script>
 
-<input type="color" on:input={handleChange} />
+<input type="color" on:input={handleChange} value="#772ce8" />
 
 {#if $isAuthenticated}
   <div class="logged-in-text">

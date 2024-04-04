@@ -1,7 +1,6 @@
 <script lang="ts">
   import logo from '../assets/logo.png';
   import AuthError from './Auth/AuthError.svelte';
-
   import AuthSuccess from './Auth/AuthSuccess.svelte';
 </script>
 

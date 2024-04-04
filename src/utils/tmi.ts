@@ -74,4 +74,16 @@ export const tmiConnect = (username, token, channel) => {
       return [...current, newMessage];
     });
   });
+  client.on(
+    'messagedeleted',
+    (clientChannel, username, deletedMessage, userstate) => {
+      messagesStore.update((current) => {
+        const targetMessage = current.find((messageItem) => {
+          return messageItem.id === userstate['target-msg-id'];
+        });
+        targetMessage.message = 'This message has been deleted!';
+        return current;
+      });
+    },
+  );
 };
